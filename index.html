@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Sophia - Elegância & Conforto | Roupas Íntimas Premium</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #8A2BE2; /* Roxo elegante - feminino */
+            --secondary-color: #FF69B4; /* Rosa - delicadeza */
+            --accent-color: #9370DB; /* Lavanda - sofisticação */
+            --light-color: #faf5ff; /* Lilás muito claro */
+            --dark-color: #4B0082; /* Índigo escuro */
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .bg-primary-custom {
+            background-color: var(--primary-color) !important;
+        }
+        
+        .text-primary-custom {
+            color: var(--primary-color) !important;
+        }
+        
+        .bg-secondary-custom {
+            background-color: var(--secondary-color) !important;
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: #7a1fd1;
+            border-color: #7a1fd1;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.2);
+        }
+        
+        .btn-secondary-custom {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary-custom:hover {
+            background-color: #e55aa1;
+            border-color: #e55aa1;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.2);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1585155912635-bb0e7bf36e98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--dark-color);
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, rgba(255, 105, 180, 0.1) 100%);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: var(--dark-color);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-card {
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            background-color: white;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.1);
+        }
+        
+        .highlight-box {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .highlight-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.15);
+            border-color: var(--accent-color);
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 20px;
+            margin-bottom: 50px;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .section-title.center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .stats-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+        
+        .stats-label {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .stats-box {
+            text-align: center;
+            padding: 25px 15px;
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .stats-box:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-5px);
+        }
+        
+        .call-to-action {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #6a11cb 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .call-to-action:before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+        }
+        
+        .call-to-action:after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 105, 180, 0.1);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+        }
+        
+        .product-category {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            height: 280px;
+            margin-bottom: 30px;
+        }
+        
+        .product-category img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-category:hover img {
+            transform: scale(1.1);
+        }
+        
+        .product-category .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(75, 0, 130, 0.8));
+            color: white;
+            padding: 25px;
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding-top: 60px;
+        }
+        
+        .contact-info li {
+            margin-bottom: 12px;
+        }
+        
+        .contact-info i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .floating-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+        
+        .floating-button:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+        
+        .floating-button.whatsapp {
+            background-color: #25D366;
+        }
+        
+        .floating-button.instagram {
+            background: linear-gradient(45deg, #833AB4, #FD1D1D, #F56040);
+        }
+        
+        .badge-new {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            z-index: 10;
+        }
+        
+        .fashion-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(138, 43, 226, 0.1);
+            border-radius: 50%;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .collection-banner {
+            background: linear-gradient(rgba(138, 43, 226, 0.9), rgba(147, 112, 219, 0.9)), url('https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            border-radius: 12px;
+            margin: 60px 0;
+        }
+        
+        .quality-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/5522999999999?text=Olá%20Click%20Sophia!%20Gostaria%20de%20informações%20sobre%20suas%20coleções." target="_blank" class="floating-button whatsapp">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+        <a href="https://instagram.com/clicksophia" target="_blank" class="floating-button instagram">
+            <i class="bi bi-instagram"></i>
+        </a>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top py-3 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-stars text-primary-custom me-2"></i>Click Sophia
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#inicio">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#colecoes">Coleções</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#produtos">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#diferenciais">Diferenciais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+                <a href="#colecoes" class="btn btn-primary-custom ms-lg-4 mt-3 mt-lg-0">
+                    <i class="bi bi-bag me-2"></i>Ver Coleção
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section mt-5">
+        <div class="container">
+            <div class="row align-items-center hero-content">
+                <div class="col-lg-7">
+                    <div class="quality-badge">
+                        <i class="bi bi-award me-2 text-primary-custom"></i> Qualidade Premium desde 2010
+                    </div>
+                    <h1 class="hero-title">ELEGÂNCIA QUE <span class="text-primary-custom">CONFORTÁVEL</span> SE TORNA ÍNTIMA</h1>
+                    <p class="lead mb-4">Há mais de uma década criando roupas íntimas que combinam sofisticação, conforto e qualidade excepcional para mulheres que valorizam o cuidado pessoal.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#colecoes" class="btn btn-primary-custom btn-lg">Ver Coleções <i class="bi bi-arrow-right ms-1"></i></a>
+                        <a href="#produtos" class="btn btn-outline-dark btn-lg">Nossos Produtos <i class="bi bi-grid-3x3-gap ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="highlight-box position-relative">
+                        <div class="badge-new">NOVA COLEÇÃO</div>
+                        <h4 class="mb-3">Coleção "Sophia Luxe"</h4>
+                        <p class="mb-3">Roupas íntimas em seda e algodão egípcio com acabamento premium.</p>
+                        <h3 class="text-primary-custom">Até 30% OFF</h3>
+                        <p class="text-muted small">Na primeira compra</p>
+                        <a href="#colecoes" class="btn btn-secondary-custom w-100">Conheça a Coleção</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre a Empresa -->
+    <section id="sobre" class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h2 class="section-title center">Sobre a Click Sophia</h2>
+                    <p class="lead">Especializada em confecção de roupas íntimas desde 2010, unindo tradição familiar com inovação em design e qualidade.</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="info-card">
+                        <div class="fashion-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <h4>Nossa História</h4>
+                        <p>A <strong>Click Sophia (M S Fashion Indústria e Comércio de Confecções LTDA)</strong> foi fundada em <strong>22 de dezembro de 2010</strong> na charmosa cidade de <strong>Nova Friburgo, Rio de Janeiro</strong>. Começamos como uma pequena confecção familiar e hoje somos referência em roupas íntimas de qualidade.</p>
+                        <a href="#contato" class="btn btn-primary-custom mt-2">Conheça Nossa História</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="info-card">
+                        <div class="fashion-icon">
+                            <i class="bi bi-file-text"></i>
+                        </div>
+                        <h4>Dados Cadastrais</h4>
+                        <p><strong>CNPJ:</strong> 13.093.276/0001-03</p>
+                        <p><strong>Razão Social:</strong> M S Fashion Indústria e Comércio de Confecções LTDA</p>
+                        <p><strong>Situação Cadastral:</strong> <span class="badge bg-success">Ativa</span></p>
+                        <p><strong>Atividade Principal:</strong> 14.11-8-01 - Confecção de roupas íntimas.</p>
+                        <a href="#contato" class="btn btn-secondary-custom mt-2">Certificados de Qualidade</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Estatísticas -->
+            <div class="row mt-5">
+                <div class="col-12 text-center mb-5">
+                    <h3>Nossa Trajetória em Números</h3>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stats-box">
+                        <div class="stats-number">12+</div>
+                        <div class="stats-label">Anos de Experiência</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stats-box">
+                        <div class="stats-number">50.000+</div>
+                        <div class="stats-label">Peças Confeccionadas</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stats-box">
+                        <div class="stats-number">15+</div>
+                        <div class="stats-label">Coleções Lançadas</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stats-box">
+                        <div class="stats-number">99%</div>
+                        <div class="stats-label">Satisfação do Cliente</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner de Coleção -->
+    <div class="container">
+        <div class="collection-banner">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-3">Coleção Outono/Inverno 2023</h2>
+                    <p class="lead mb-4">Conforto e elegância para os dias mais frios, com tecidos especiais que aquecem sem pesar.</p>
+                    <a href="#colecoes" class="btn btn-light btn-lg">Explorar Coleção <i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coleções -->
+    <section id="colecoes" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title center">Nossas Coleções</h2>
+                    <p class="lead">Cada coleção é cuidadosamente desenvolvida para atender diferentes momentos e necessidades.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="highlight-box text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-moon-stars"></i>
+                        </div>
+                        <h4>Coleção Noite</h4>
+                        <p>Roupas íntimas para dormir com conforto máximo, em seda e algodão de alta qualidade.</p>
+                        <a href="#contato" class="btn btn-primary-custom mt-3">Ver Coleção</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="highlight-box text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-sun"></i>
+                        </div>
+                        <h4>Coleção Dia</h4>
+                        <p>Conforto discreto para o dia a dia, com modelos que se adaptam perfeitamente ao corpo.</p>
+                        <a href="#contato" class="btn btn-primary-custom mt-3">Ver Coleção</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="highlight-box text-center">
+                        <div class="feature-icon">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                        <h4>Coleção Especial</h4>
+                        <p>Peças especiais para momentos especiais, com detalhes sofisticados e tecidos exclusivos.</p>
+                        <a href="#contato" class="btn btn-primary-custom mt-3">Ver Coleção</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produtos -->
+    <section id="produtos" class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title center">Nossos Produtos</h2>
+                    <p class="lead">Variedade, qualidade e conforto em cada peça confeccionada.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="product-category">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Calcinhas">
+                        <div class="overlay">
+                            <h3 class="mb-2">Calcinhas</h3>
+                            <p class="mb-0">Modelos diversos para todos os gostos</p>
+                            <a href="#" class="btn btn-sm btn-secondary-custom mt-3">Ver Produtos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-category">
+                        <img src="https://images.unsplash.com/photo-1585155912635-bb0e7bf36e98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sutiãs">
+                        <div class="overlay">
+                            <h3 class="mb-2">Sutiãs</h3>
+                            <p class="mb-0">Conforto e suporte em diversos modelos</p>
+                            <a href="#" class="btn btn-sm btn-secondary-custom mt-3">Ver Produtos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-category">
+                        <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pijamas">
+                        <div class="overlay">
+                            <h3 class="mb-2">Pijamas</h3>
+                            <p class="mb-0">Conforto para noites perfeitas de sono</p>
+                            <a href="#" class="btn btn-sm btn-secondary-custom mt-3">Ver Produtos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-category">
+                        <img src="https://images.unsplash.com/photo-1577900230376-81d56b8c3563?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Body">
+                        <div class="overlay">
+                            <h3 class="mb-2">Body</h3>
+                            <p class="mb-0">Praticidade e elegância em uma peça só</p>
+                            <a href="#" class="btn btn-sm btn-secondary-custom mt-3">Ver Produtos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-category">
+                        <img src="https://images.unsplash.com/photo-1525171254930-643fc658b64e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Conjuntos">
+                        <div class="overlay">
+                            <h3 class="mb-2">Conjuntos</h3>
+                            <p class="mb-0">Combinações perfeitas e harmoniosas</p>
+                            <a href="#" class="btn btn-sm btn-secondary-custom mt-3">Ver Produtos</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-category">
+                        <img src="https://images.unsplash.com/photo-1571069756437-5c6d67b3f1d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Acessórios">
+                        <div class="overlay">
+                            <h3 class="mb-2">Acessórios</h3>
+                            <p class="mb-0">Complementos para looks especiais</p>
+                            <a href="#" class="btn btn-sm btn-secondary-custom mt-3">Ver Produtos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <a href="#contato" class="btn btn-primary-custom btn-lg">Solicitar Catálogo Completo <i class="bi bi-arrow-right-circle ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section id="diferenciais" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title center">Por Que Escolher a Click Sophia?</h2>
+                    <p class="lead">Conheça os diferenciais que nos tornam referência em roupas íntimas.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center p-4">
+                        <div class="fashion-icon mx-auto">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                        <h5>Conforto Incomparável</h5>
+                        <p>Tecidos selecionados que proporcionam conforto durante todo o dia.</p>
+                        <a href="#contato" class="btn btn-sm btn-outline-primary-custom">Saiba Mais</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center p-4">
+                        <div class="fashion-icon mx-auto">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h5>Qualidade Garantida</h5>
+                        <p>Controle rigoroso de qualidade em todas as etapas de produção.</p>
+                        <a href="#contato" class="btn btn-sm btn-outline-primary-custom">Certificações</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center p-4">
+                        <div class="fashion-icon mx-auto">
+                            <i class="bi bi-person-heart"></i>
+                        </div>
+                        <h5>Design Exclusivo</h5>
+                        <p>Modelos desenvolvidos por nossa equipe de design especializada.</p>
+                        <a href="#contato" class="btn btn-sm btn-outline-primary-custom">Conheça a Equipe</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center p-4">
+                        <div class="fashion-icon mx-auto">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h5>Entrega em Todo Brasil</h5>
+                        <p>Enviamos para todo o país com embalagem especial para roupas íntimas.</p>
+                        <a href="#contato" class="btn btn-sm btn-outline-primary-custom">Consultar Prazos</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="call-to-action rounded mt-5">
+                <div class="row align-items-center position-relative" style="z-index: 10;">
+                    <div class="col-lg-8">
+                        <h3 class="mb-3">GANHE 15% DE DESCONTO NA SUA PRIMEIRA COMPRA!</h3>
+                        <p class="mb-0">Cadastre-se para receber ofertas exclusivas e novidades das nossas coleções.</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a href="#contato" class="btn btn-light btn-lg fw-bold">Quero Meu Desconto <i class="bi bi-gift ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title center">O Que Nossas Clientes Dizem</h2>
+                    <p class="lead">A satisfação de quem já experimentou a qualidade Click Sophia.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "As roupas íntimas da Click Sophia são simplesmente perfeitas! O conforto é incomparável e a qualidade dos tecidos é excepcional. Minha marca preferida há anos!"
+                        </div>
+                        <div class="testimonial-author">Maria Silva, 32 anos</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "Compro há 5 anos e nunca me decepcionei. Os modelos são lindos, o caimento é perfeito e o atendimento é excelente. Recomendo para todas as minhas amigas!"
+                        </div>
+                        <div class="testimonial-author">Ana Costa, 28 anos</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "Como lojista, trabalho com várias marcas, mas a Click Sophia é a preferida das minhas clientes. A qualidade é consistente e as coleções sempre inovadoras."
+                        </div>
+                        <div class="testimonial-author">Juliana Mendes, Lojista</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title center">Entre em Contato</h2>
+                    <p class="lead">Estamos prontas para atender suas necessidades com elegância e cuidado!</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-5">
+                    <h4 class="mb-4">Informações de Contato</h4>
+                    <ul class="list-unstyled contact-info">
+                        <li><i class="bi bi-geo-alt"></i> <strong>Localização:</strong> Nova Friburgo, Rio de Janeiro - Brasil</li>
+                        <li><i class="bi bi-building"></i> <strong>CNPJ:</strong> 13.093.276/0001-03</li>
+                        <li><i class="bi bi-building"></i> <strong>Razão Social:</strong> M S Fashion Indústria e Comércio de Confecções LTDA</li>
+                        <li><i class="bi bi-calendar-check"></i> <strong>Fundação:</strong> 22 de Dezembro de 2010</li>
+                        <li><i class="bi bi-check-circle"></i> <strong>Situação Cadastral:</strong> Ativa</li>
+                        <li><i class="bi bi-briefcase"></i> <strong>Atividade:</strong> Confecção de roupas íntimas</li>
+                        <li><i class="bi bi-telephone"></i> <strong>Telefone:</strong> (22) 9999-9999</li>
+                        <li><i class="bi bi-whatsapp"></i> <strong>WhatsApp:</strong> (22) 99999-9999</li>
+                        <li><i class="bi bi-envelope"></i> <strong>E-mail:</strong> contato@clicksophia.com.br</li>
+                    </ul>
+                    
+                    <div class="mt-4">
+                        <h5>Siga a Click Sophia</h5>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="text-primary-custom fs-4"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="text-primary-custom fs-4"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-primary-custom fs-4"><i class="bi bi-pinterest"></i></a>
+                            <a href="#" class="text-primary-custom fs-4"><i class="bi bi-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="highlight-box">
+                        <h4 class="mb-4">Envie sua Mensagem</h4>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome Completo *</label>
+                                <input type="text" class="form-control" id="nome" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-mail *</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefone" class="form-label">Telefone/WhatsApp *</label>
+                                <input type="tel" class="form-control" id="telefone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="assunto" class="form-label">Assunto *</label>
+                                <select class="form-select" id="assunto" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="orcamento">Solicitar Orçamento</option>
+                                    <option value="revenda">Interesse em Revenda</option>
+                                    <option value="produto">Informação sobre Produto</option>
+                                    <option value="duvida">Tirar Dúvida</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mensagem" class="form-label">Mensagem *</label>
+                                <textarea class="form-control" id="mensagem" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary-custom btn-lg w-100">Enviar Mensagem <i class="bi bi-send ms-1"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="mb-3"><i class="bi bi-stars me-2"></i>Click Sophia</h4>
+                    <p>Especializada em confecção de roupas íntimas desde 2010, unindo tradição, qualidade e design exclusivo.</p>
+                    <a href="#inicio" class="btn btn-sm btn-outline-light mt-2">Voltar ao Topo <i class="bi bi-arrow-up ms-1"></i></a>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#inicio" class="text-light text-decoration-none">Início</a></li>
+                        <li class="mb-2"><a href="#sobre" class="text-light text-decoration-none">Sobre a Empresa</a></li>
+                        <li class="mb-2"><a href="#colecoes" class="text-light text-decoration-none">Coleções</a></li>
+                        <li class="mb-2"><a href="#produtos" class="text-light text-decoration-none">Produtos</a></li>
+                        <li class="mb-2"><a href="#diferenciais" class="text-light text-decoration-none">Diferenciais</a></li>
+                        <li class="mb-2"><a href="#contato" class="text-light text-decoration-none">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Informações Legais</h5>
+                    <p><strong>M S Fashion Indústria e Comércio de Confecções LTDA</strong></p>
+                    <p>CNPJ: 13.093.276/0001-03</p>
+                    <p>Nova Friburgo/RJ</p>
+                    <p>Atividade: 14.11-8-01 - Confecção de roupas íntimas</p>
+                    <p>Fundada em: 22/12/2010</p>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2023 Click Sophia - M S Fashion Indústria e Comércio de Confecções LTDA. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Desenvolvido com <i class="bi bi-heart-fill text-secondary"></i> para mulheres que valorizam o conforto e elegância</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigada pelo seu contato! Em breve nossa equipe entrará em contato.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Adiciona efeito de digitação no título principal
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroTitle = document.querySelector('.hero-title');
+            if (heroTitle) {
+                const originalText = heroTitle.innerHTML;
+                const words = originalText.split(' ');
+                heroTitle.innerHTML = '';
+                
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < words.length) {
+                        heroTitle.innerHTML += words[i] + ' ';
+                        i++;
+                        setTimeout(typeWriter, 150);
+                    }
+                };
+                
+                // Inicia a animação após um breve delay
+                setTimeout(typeWriter, 500);
+            }
+        });
+    </script>
+</body>
+</html>
